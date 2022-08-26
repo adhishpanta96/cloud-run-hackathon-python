@@ -35,7 +35,6 @@ def getGameInfo(gameState):
         # print(gameState['arena']['state'][player])
         Xcoord = gameState['arena']['state'][player]['x']
         Ycoord = gameState['arena']['state'][player]['y']
-        logger.info(Xcoord, Ycoord)
         if player != player1ID:
             arena[Xcoord][Ycoord] = gameState['arena']['state'][player]['direction']
             calulateDangermap(dangerMap, Xcoord, Ycoord,
@@ -257,19 +256,21 @@ def move():
     request.get_data()
     logger.info(request.json)
     logger.info(type(request.json))
-    arena, dangerMap, playerDetails = getGameInfo(request.json)
-    arenaState, dangerState, playerDetails = getGameInfo(request.json)
-    inFutureDanger, inDanger, targetAvailable, targetDistance = calcNextMove(arenaState, dangerState, playerDetails)
-    isMoveSafe, onEdge = calcSafeMove(inFutureDanger, inDanger, arenaState, dangerState, playerDetails)
-    logger.info("HEREEEE")                                    
-    logger.info(targetAvailable)
-    if targetAvailable: 
-       return 'T'
-    else:
-        d = direction[random.randrange(len(direction))] 
-        logger.info(d)
+    # arena, dangerMap, playerDetails = getGameInfo(request.json)
+    # arenaState, dangerState, playerDetails = getGameInfo(request.json)
+    # inFutureDanger, inDanger, targetAvailable, targetDistance = calcNextMove(arenaState, dangerState, playerDetails)
+    # isMoveSafe, onEdge = calcSafeMove(inFutureDanger, inDanger, arenaState, dangerState, playerDetails)
+    # logger.info("HEREEEE")                                    
+    # logger.info(targetAvailable)
+    # if targetAvailable: 
+    #    return 'T'
+    # else:
+    try:
+        d = move[random.randrange(len(move))] 
         return d
-
+    except:
+        return 'T'
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
+
