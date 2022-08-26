@@ -268,10 +268,10 @@ def move():
     #    return 'T'
     # else:
     try:
-        d = move[random.randrange(4)] 
+        d = moves[random.randrange(4)] 
         return d
     except:
-        d = move[random.randrange(4)] 
+        d = moves[random.randrange(4)] 
         return d
 
 if __name__ == "__main__":
