@@ -253,9 +253,11 @@ def index():
 @app.route("/", methods=['POST'])
 def move():
 
-    request.get_data()
-    logger.info(request.json)
-    logger.info(type(request.json))
+    # request.get_data()
+    # game_state = request.json 
+    # logger.info (game_state['arena']['state']['https://foo.com'])
+    # logger.info(request.json)
+    # logger.info(type(request.json))
     # arena, dangerMap, playerDetails = getGameInfo(request.json)
     # arenaState, dangerState, playerDetails = getGameInfo(request.json)
     # inFutureDanger, inDanger, targetAvailable, targetDistance = calcNextMove(arenaState, dangerState, playerDetails)
@@ -269,7 +271,7 @@ def move():
         d = move[random.randrange(len(move))] 
         return d
     except:
-        return 'T'
+        return move[random.randrange(len(move))] 
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
