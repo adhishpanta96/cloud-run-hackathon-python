@@ -33,9 +33,9 @@ def getGameInfo(gameState):
     arena = [[0]*arenaDims[0] for _ in range(arenaDims[1])]
     for player in gameState['arena']['state']:
         # print(gameState['arena']['state'][player])
-        logger.info(Xcoord, Ycoord)
         Xcoord = gameState['arena']['state'][player]['x']
         Ycoord = gameState['arena']['state'][player]['y']
+        logger.info(Xcoord, Ycoord)
         if player != player1ID:
             arena[Xcoord][Ycoord] = gameState['arena']['state'][player]['direction']
             calulateDangermap(dangerMap, Xcoord, Ycoord,
