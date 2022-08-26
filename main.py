@@ -272,10 +272,10 @@ def move():
     try:
         arenaState, dangerState, playerDetails = getGameInfo(request.json)
         logger.info(arenaState)
-        d = moves[random.randrange(12)] 
+        d = moves[random.randrange(3)] 
         return d
     except:
-        d = moves[random.randrange(12)] 
+        d = moves[random.randrange(3)] 
         return d
 
 if __name__ == "__main__":
