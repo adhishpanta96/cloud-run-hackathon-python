@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 direction = ['L', 'R']
-moves = ['F', 'T', 'L', 'R', 'T', 'T', 'T', 'T', 'F', "F", 'R', 'L']
+moves = ['T', 'L', 'R']
 
 def getGameInfo(gameState):
 
