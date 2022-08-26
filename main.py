@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 direction = ['L', 'R']
-moves = ['F', 'T', 'L', 'R']
+moves = ['F', 'T', 'L', 'R', 'T', 'T', 'T', 'T', 'F', "F", 'R', 'L']
 
 def getGameInfo(gameState):
 
@@ -267,15 +267,15 @@ def move():
     # if targetAvailable: 
     #    return 'T'
     # else:
-    arenaState, dangerState, playerDetails = getGameInfo(request.json)
-    logger.info(arenaState)
+    
 
     try:
-
-        d = moves[random.randrange(4)] 
+        arenaState, dangerState, playerDetails = getGameInfo(request.json)
+        logger.info(arenaState)
+        d = moves[random.randrange(12)] 
         return d
     except:
-        d = moves[random.randrange(4)] 
+        d = moves[random.randrange(12)] 
         return d
 
 if __name__ == "__main__":
