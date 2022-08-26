@@ -29,6 +29,7 @@ def getGameInfo(gameState):
 
     player1ID = gameState['_links']['self']['href']
     arenaDims = gameState['arena']['dims']
+     
     dangerMap = [[0]*arenaDims[0] for _ in range(arenaDims[1])]
     arena = [[0]*arenaDims[0] for _ in range(arenaDims[1])]
     for player in gameState['arena']['state']:
@@ -259,7 +260,6 @@ def move():
     # logger.info(request.json)
     # logger.info(type(request.json))
     # arena, dangerMap, playerDetails = getGameInfo(request.json)
-    # arenaState, dangerState, playerDetails = getGameInfo(request.json)
     # inFutureDanger, inDanger, targetAvailable, targetDistance = calcNextMove(arenaState, dangerState, playerDetails)
     # isMoveSafe, onEdge = calcSafeMove(inFutureDanger, inDanger, arenaState, dangerState, playerDetails)
     # logger.info("HEREEEE")                                    
@@ -267,7 +267,11 @@ def move():
     # if targetAvailable: 
     #    return 'T'
     # else:
+    arenaState, dangerState, playerDetails = getGameInfo(request.json)
+    logger.info(arenaState)
+
     try:
+
         d = moves[random.randrange(4)] 
         return d
     except:
